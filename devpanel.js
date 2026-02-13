@@ -33,7 +33,7 @@
 
     // Button click: prompt for code if needed, then open panel
     devBtn.addEventListener('click', async () => {
-        const CODE_KEY = 'sleepcoinc-dev-access';
+        const CODE_KEY = 'lightstudios-dev-access';
         let codes = await getCodes();
         let stored = localStorage.getItem(CODE_KEY);
         if (!codes.includes(stored)) {
@@ -85,7 +85,7 @@
         };
         document.getElementById('refresh-btn').onclick = () => location.reload();
         document.getElementById('clear-cache-btn').onclick = () => {
-            localStorage.setItem('sleepcoinc-darkmode', JSON.stringify(false));
+            localStorage.setItem('lightstudios-darkmode', JSON.stringify(false));
             localStorage.clear();
             alert('Local storage cleared!');
             location.reload();
@@ -94,14 +94,14 @@
             const isDark = !document.body.classList.contains('dark-mode');
             document.body.classList.toggle('dark-mode', isDark);
             panel.classList.toggle('dark-mode', isDark);
-            localStorage.setItem('sleepcoinc-darkmode', JSON.stringify(isDark));
+            localStorage.setItem('lightstudios-darkmode', JSON.stringify(isDark));
         };
         document.getElementById('goto-devpanel-btn').onclick = () => {
             window.open('devpanel.html', '_blank');
         };
 
         // Apply dark mode if set
-        const darkPref = localStorage.getItem('sleepcoinc-darkmode');
+        const darkPref = localStorage.getItem('lightstudios-darkmode');
         if (darkPref && JSON.parse(darkPref)) {
             document.body.classList.add('dark-mode');
             panel.classList.add('dark-mode');
